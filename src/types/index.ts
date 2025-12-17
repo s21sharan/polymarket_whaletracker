@@ -37,3 +37,28 @@ export interface PortfolioDataPoint {
   value: number
   trades: number
 }
+
+export interface CopyTrade {
+  id: string
+  timestamp: string
+  market: {
+    id: string
+    question: string
+    slug?: string
+  }
+  side: 'BUY' | 'SELL'
+  outcome: 'YES' | 'NO'
+  amount: number
+  price: number
+  status: 'pending' | 'copied' | 'skipped' | 'failed'
+  txHash?: string
+}
+
+export interface TargetWallet {
+  address: string
+  pnl: number
+  winRate: number
+  totalTrades: number
+  activePositions: number
+  lastActive: string
+}
